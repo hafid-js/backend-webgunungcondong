@@ -9,31 +9,28 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Date;
 
-
 @Entity
-@Table(name = "reply_comments")
+@Table(name = "reply_message")
 @NoArgsConstructor
 @Setter
 @Getter
-public class ReplyComment {
+public class ReplyMessage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer replyCommentId;
+    private Integer replyMessageId;
 
-    private String comment;
+    private String email;
+
+    private String subject;
+
+    private String message;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "message_id")
+    private Message messages;
 
     private Date createdAt;
 
-    private Date updatedAt;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "comment_id")
-    private Comment comments;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "user_id")
-    private User user;
 }

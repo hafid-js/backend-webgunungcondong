@@ -11,29 +11,24 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "reply_comments")
+@Table(name = "post_viewers")
 @NoArgsConstructor
 @Setter
 @Getter
-public class ReplyComment {
+public class PostViewers{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer replyCommentId;
+    private Integer viewerId;
 
-    private String comment;
+    private Date date;
 
-    private Date createdAt;
+    private String ipAddress;
 
-    private Date updatedAt;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "comment_id")
-    private Comment comments;
+    private String platform;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "post_id")
+    private Post post;
 }

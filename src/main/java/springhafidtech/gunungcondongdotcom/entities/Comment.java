@@ -19,19 +19,19 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer commentarId;
+    private Integer commentId;
 
     private String name;
 
     private String email;
 
-    private String commentar;
+    private String comment;
 
     private Date createdAt;
 
     private Date updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "post_id")
     private Post post;

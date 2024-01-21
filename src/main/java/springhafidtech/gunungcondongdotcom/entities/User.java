@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String firstName;
@@ -44,6 +44,9 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role", referencedColumnName = "id")
     )
     private Set<Role> roles = new HashSet<>();
+
+//    @ManyToMany
+//    private Post post;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

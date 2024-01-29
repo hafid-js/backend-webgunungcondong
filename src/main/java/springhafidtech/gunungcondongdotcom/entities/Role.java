@@ -9,7 +9,7 @@ import lombok.Data;
 public class Role {
 
     @Id
-    private int id;
+    private Integer id;
 
     private String name;
 }

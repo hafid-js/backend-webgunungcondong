@@ -15,7 +15,7 @@ public class Agenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int agendaId;
+    private Integer agendaId;
 
     private String title;
 

@@ -31,8 +31,6 @@ public class SpringBackendGunungCondongApplication implements CommandLineRunner 
 		return new ModelMapper();
 	}
 
-
-
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println(this.passwordEncoder.encode("xyz"));

@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Setter
 @Getter
-public class PostViewers{
+public class PostViewer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

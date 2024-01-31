@@ -25,6 +25,8 @@ import springhafidtech.gunungcondongdotcom.repositories.PostRepo;
 import springhafidtech.gunungcondongdotcom.repositories.UserRepo;
 import springhafidtech.gunungcondongdotcom.services.PostService;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,6 +68,7 @@ public class PostServiceImpl implements PostService {
 
         Post newPost = this.postRepo.save(post);
         return this.modelMapper.map(newPost, PostDto.class);
+
     }
 
     @Override
@@ -106,7 +109,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> getPostsByCategory(Integer categoryId) {
-        return null;
+        Category cat = this.categoryRepo.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category", "category id" , categoryId));
+        List<Post> posts = this.postRepo.findByCategory(cat);
+
+        List<PostDto> postDtos = posts.stream().map((post) -> this.modelMapper.map(posts, PostDto.class)).collect(Collectors.toList());
+
+        return postDtos;
     }
 
     @Override

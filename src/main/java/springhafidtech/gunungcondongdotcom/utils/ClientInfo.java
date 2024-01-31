@@ -1,13 +1,13 @@
 package springhafidtech.gunungcondongdotcom.utils;
 
-import com.sun.tools.javac.Main;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.logging.Logger;
+import org.springframework.stereotype.Component;
 
 @Slf4j
+@Component
 public class ClientInfo {
 
     public void printClientInfo(HttpServletRequest request) {
@@ -17,6 +17,9 @@ public class ClientInfo {
         final String clientOS = getClientOS(request);
         final String clientBrowser = getClientBrowser(request);
         final String userAgent = getUserAgent(request);
+
+        Logger logger
+                = LoggerFactory.getLogger(ClientInfo.class);
 
         logger.info("\n" +
                 "User Agent \t" + userAgent + "\n" +

@@ -21,7 +21,7 @@ public class AddressDto {
 
     private String street;
 
-    private User user;
+    private UserDto user;
 
 
 

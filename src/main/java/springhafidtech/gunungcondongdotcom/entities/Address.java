@@ -27,8 +27,8 @@ public class Address {
 
     private String country;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @OneToOne
+    @MapsId
     @JoinColumn(name = "user_id")
     private User user;
 }

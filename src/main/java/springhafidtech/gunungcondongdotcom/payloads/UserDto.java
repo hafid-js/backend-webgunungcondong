@@ -36,7 +36,9 @@ public class UserDto {
 
     private String image;
 
-    private Address address;
+    private AddressDto address;
 
-    private Set<RoleDto> roles = new HashSet<>();
+    private RoleDto role;
+
+
 }

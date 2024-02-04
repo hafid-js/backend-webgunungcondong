@@ -29,7 +29,7 @@ import springhafidtech.gunungcondongdotcom.security.JwtAuthenticationFilter;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
 
-    public static final String[] PUBLIC_URLS = {"/api/v1/auth/**","/api/categories/**", "/v3/api-docs", "/v2/api-docs",
+    public static final String[] PUBLIC_URLS = {"/api/v1/auth/**","/api/categories/**","/api/comment/**", "/v3/api-docs", "/v2/api-docs",
             "/swagger-resources/**", "/swagger-ui/**", "/webjars/**"
 
     };

@@ -39,16 +39,19 @@ public class User implements UserDetails {
     private List<Post> posts = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role", referencedColumnName = "id")
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id")
     )
     private Set<Role> roles = new HashSet<>();
 
-//    @ManyToMany
-//    private Post post;
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Address address;
 
-    @Override
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Set<Address> address = new HashSet<>();
+
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authories = this.roles.stream().map((role) -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
         return authories;

@@ -3,8 +3,11 @@ package springhafidtech.gunungcondongdotcom.payloads;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import springhafidtech.gunungcondongdotcom.entities.Comment;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @NoArgsConstructor
 @Setter
@@ -30,4 +33,6 @@ public class PostDto {
     private CategoryDto category;
 
     private UserDto user;
+
+    private Set<CommentDto> comments = new HashSet<>();
 }

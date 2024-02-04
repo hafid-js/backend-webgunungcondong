@@ -1,8 +1,11 @@
 package springhafidtech.gunungcondongdotcom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.util.Collection;
 
 @Entity
 @Data
@@ -12,4 +15,8 @@ public class Role {
     private Integer id;
 
     private String name;
+
+//    @ManyToMany(mappedBy = "role")
+//    private Collection<User> user;
+
 }

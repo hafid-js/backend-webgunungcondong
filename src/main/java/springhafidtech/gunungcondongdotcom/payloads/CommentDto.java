@@ -23,7 +23,5 @@ public class CommentDto {
 
     private String updatedAt;
 
-    private UserDto user;
-
 
 }

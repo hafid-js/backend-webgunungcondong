@@ -1,5 +1,6 @@
 package springhafidtech.gunungcondongdotcom.payloads;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +26,9 @@ public class AgendaDto {
 
     private String description;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
 
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
 }

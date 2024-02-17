@@ -14,7 +14,7 @@ public class GalleryCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer galleryCategoryId;
 
     private String name;
 

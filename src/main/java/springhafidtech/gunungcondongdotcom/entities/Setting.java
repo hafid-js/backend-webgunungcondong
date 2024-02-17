@@ -32,5 +32,5 @@ public class Setting {
 
     private String instagram;
 
-    private String youtubeLinksWidget;
+    private String[] youtubeLinksWidget;
 }
